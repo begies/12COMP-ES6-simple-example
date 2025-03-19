@@ -1,6 +1,22 @@
 body {
-    background-color: grey;
-    color: white;
+    background-color: #a6a6a4;
+    color: #40403d;
     font-family: Arial, sans-serif;
     margin: 20px;
   }
+
+.module {
+    color: #30302f;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.code {
+    font-family: Consolas;
+    color: #ebf70f;
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}

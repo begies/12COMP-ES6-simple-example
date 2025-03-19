@@ -4,16 +4,55 @@
   <title>JS files vs JS modules</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   
-  <script defer src="a_JS_file.js"></script>
-  <script defer src="b_JS_file.js"></script>
-  <script defer src="c_JS_module.mjs"></script>
-  <script defer src="d_JS_module.mjs"></script>
+  <script               defer src="a_JS_file.js"></script>
+  <script               defer src="b_JS_file.js"></script>
+  <script type="module" defer src="c_JS_module.mjs"></script>
+  <script type="module" defer src="d_JS_module.mjs"></script>
 </head>
 
-<body onload="a_func_1(); b_func_2(); c_func_1(); d_func_2();">
-  <h1>JS files vs JS modules</h1>
-  <p>Open the console to see the output.</p>
- 
+<body onload="a_func_1(); c_func_1();">
+  <h1>JavaScript version ES6: JS files vs JS modules</h1>
+  <br>
+  <h4><span class="module">a_JS_file.js </span> and <span class="module">b_JS_file.js </span> 
+    are both JavaScript files
+  </h4>
+  <h4><span class="module">c_JS_module.js </span>and <span class="module">b_JS_module.js </span> 
+    are also both JavaScript files, even though they are named 
+    <span class="module"> ?_JS_module.js </span> there is NO browser directive to 
+    load them as modules in the &lt;script> tags
+  </h4>
+  <p>Open the console to see the output. You will see that:</p>
+    <ul>
+      <li><span class="module">a_JS_files.js </span> 
+          function <span class="code"> a_func_1 </span> 
+          calls <span class="module"> b_JS_file.js </span> 
+          function <span class="code">b_func_1</span></li>
+      <li><span class="module">c_JS_module.js </span>
+          function <span class="code"> c_func_1 </span>
+          calls <span class="module"> d_JS_module.js </span>
+          function <span class="code"> d_func_1</span></li>
+    </ul>
+  <br>
+  <h4 style="margin-bottom: 0px;">
+    Now direct the browser that <span class="module"> c_JS_module.js </span>
+    and <span class="module"> b_JS_module.js </span> are both JavaScript modules 
+    by adding <span class="code"> type="module" </span> to their &lt;script> tags. IE:
+  </h4>
+  <h4 style="margin-top: 0px;">
+    <ul style="margin-top: 0px; list-style-type: none;">
+      <li><span class="code"> &lt;script type="module" src="c_JS_module.js">&lt;/script> </span> </li>
+      <li><span class="code"> &lt;script type="module" src="d_JS_module.js">&lt;/script> </span> </li>
+    </ul>
+  </h4>
+  <p>Open the console to see the output. You will see that that the browser failed 
+     to locate the <span class="module"> c_JS_module.js </span> 
+     function <span class="code"> c_func_1 </span>
+  </p>
+  <p> This is because with ES6 JS modules all 
+      <span class="bold"> constants variables and functions </span>
+      are by default local to the module they are defined in.
+  </p>
 </body>
 </html>

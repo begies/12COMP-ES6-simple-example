@@ -17,12 +17,12 @@ console.log('%c d_func_1(): Called by c_func_1() in c_JS_module.mjs',
 
 /**************************************************************/
 // d_func_2()
-// Called by body onload event in index.html
+// Called by ??????
 /**************************************************************/
 function d_func_2() {
 console.log('%c d_func_2(): Called by body onload event in index.html',
             'color: ' + D_COL_C + '; background-color: ' + D_COL_B + ';');
-c_func_2();
+
 }
  
 /**************************************************************/

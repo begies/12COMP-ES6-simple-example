@@ -55,7 +55,7 @@
 
   <p class="noBottomGap">
     Now direct the browser that <span class="module"> c_JS_module.mjs </span>
-    and <span class="module"> d_JS_module.mjs </span> are both JavaScript modules 
+    and <span class="module"> d_JS_module.mjs </span> are both JavaScript <span class="bolder"> modules </span>
     by adding <span class="code"> type="module" </span> to their &lt;script> tags. IE:
   </p>
     <ul class="list">
@@ -82,15 +82,29 @@
       </ul>
   </p>
   <p class="noBottomGap">Open the console to see the output. You will see that it now works:</p>
-    <ul class="list">
-      <li><span class="module">a_JS_files.js </span> 
-          function <span class="code"> a_func_1 </span> 
-          calls <span class="module"> b_JS_file.js </span> 
-          function <span class="code">b_func_1</span></li>
-      <li><span class="module">c_JS_module.mjs </span>
-          function <span class="code"> c_func_1 </span>
-          calls <span class="module"> d_JS_module.mjs </span>
-          function <span class="code"> d_func_1</span></li>
-    </ul>
+  <ul class="list">
+    <li><span class="module">a_JS_files.js </span> 
+        function <span class="code"> a_func_1 </span> 
+        calls <span class="module"> b_JS_file.js </span> 
+        function <span class="code">b_func_1</span></li>
+    <li><span class="module">c_JS_module.mjs </span>
+        function <span class="code"> c_func_1 </span>
+        calls <span class="module"> d_JS_module.mjs </span>
+        function <span class="code"> d_func_1</span></li>
+  </ul>
+  <br>
+
+  <h2>Your turn...</h2>
+  <p class="noBottomGap">Both JavaScript modules have two functions. Make:</p>
+  <ul class="list">
+    <li><span class="module">c_JS_module.mjs </span> function <span class="code"> c_func_1 </span> 
+        call <span class="module">d_JS_module.mjs </span> function <span class="code"> d_func_2 </span></li>
+    <li><span class="module">d_JS_module.mjs </span> function <span class="code"> d_func_2 </span> 
+        call <span class="module">c_JS_module.mjs </span> function <span class="code"> c_func_2 </span></li>
+  </ul>
+  <p>NOTE: for both export or import; to list multiple items, separate the items with a comma (,) 
+     And for imports add further window.???? = ???? entries</p>
+  <p>Open the console to see the output. You will see that it now works</p>
+  
 </body>
 </html>

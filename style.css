@@ -3,7 +3,19 @@ body {
     color: #40403d;
     font-family: Arial, sans-serif;
     margin: 20px;
+    font-weight: bold;
   }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+}
+
+.grid-container > div {
+    background-color: azure;
+    padding: 10px;
+}
 
 .module {
     color: #30302f;
@@ -17,6 +29,17 @@ body {
     font-style: italic;
 }
 
-.bold {
-    font-weight: bold;
+.bolder {
+    font-weight: 900;
+}
+
+.list {
+    margin-top: 4px;
+}
+.liNone {
+    list-style-type: none;
+}
+
+.noBottomGap { 
+    margin-bottom: 0px;
 }

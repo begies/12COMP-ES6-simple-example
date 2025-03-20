@@ -8,51 +8,89 @@
   
   <script               defer src="a_JS_file.js"></script>
   <script               defer src="b_JS_file.js"></script>
+  <!--
+  <script               defer src="c_JS_module.mjs"></script>
+  <script               defer src="d_JS_module.mjs"></script> 
+  -->
   <script type="module" defer src="c_JS_module.mjs"></script>
   <script type="module" defer src="d_JS_module.mjs"></script>
+
 </head>
 
 <body onload="a_func_1(); c_func_1();">
   <h1>JavaScript version ES6: JS files vs JS modules</h1>
   <br>
-  <h4><span class="module">a_JS_file.js </span> and <span class="module">b_JS_file.js </span> 
-    are both JavaScript files
-  </h4>
-  <h4><span class="module">c_JS_module.js </span>and <span class="module">b_JS_module.js </span> 
-    are also both JavaScript files, even though they are named 
-    <span class="module"> ?_JS_module.js </span> there is NO browser directive to 
-    load them as modules in the &lt;script> tags
-  </h4>
-  <p>Open the console to see the output. You will see that:</p>
-    <ul>
+
+  <div class="grid-container">
+    <div>
+      <h4><span class="module">a_JS_file.js </span> and 
+        <span class="module">b_JS_file.js </span> are both JavaScript files
+      </h4>
+    </div>
+    <div>
+      <h4><span class="module">c_JS_module.mjs </span>and 
+        <span class="module">b_JS_module.mjs </span> are both JavaScript files
+        even though:
+        <ul class="list">
+          <li>their names include the word module</li>
+          <li>they both have the extension <span class="module"> .mjs </span></li>
+        </ul> 
+        The key point is there is NO browser directive to load them as modules in the &lt;script> tags
+      </h4>
+    </div>
+  </div>
+
+  <p class="noBottomGap">Open the console to see the output. You will see that:</p>
+    <ul class="list">
       <li><span class="module">a_JS_files.js </span> 
           function <span class="code"> a_func_1 </span> 
           calls <span class="module"> b_JS_file.js </span> 
           function <span class="code">b_func_1</span></li>
-      <li><span class="module">c_JS_module.js </span>
+      <li><span class="module">c_JS_module.mjs </span>
           function <span class="code"> c_func_1 </span>
-          calls <span class="module"> d_JS_module.js </span>
+          calls <span class="module"> d_JS_module.mjs </span>
           function <span class="code"> d_func_1</span></li>
     </ul>
   <br>
-  <h4 style="margin-bottom: 0px;">
-    Now direct the browser that <span class="module"> c_JS_module.js </span>
-    and <span class="module"> b_JS_module.js </span> are both JavaScript modules 
+
+  <p class="noBottomGap">
+    Now direct the browser that <span class="module"> c_JS_module.mjs </span>
+    and <span class="module"> d_JS_module.mjs </span> are both JavaScript modules 
     by adding <span class="code"> type="module" </span> to their &lt;script> tags. IE:
-  </h4>
-  <h4 style="margin-top: 0px;">
-    <ul style="margin-top: 0px; list-style-type: none;">
-      <li><span class="code"> &lt;script type="module" src="c_JS_module.js">&lt;/script> </span> </li>
-      <li><span class="code"> &lt;script type="module" src="d_JS_module.js">&lt;/script> </span> </li>
+  </p>
+    <ul class="list">
+      <li class="liNone"><span class="code"> &lt;script type="module" src="c_JS_module.mjs">&lt;/script> </span> </li>
+      <li class="liNone"><span class="code"> &lt;script type="module" src="d_JS_module.mjs">&lt;/script> </span> </li>
     </ul>
-  </h4>
+  
   <p>Open the console to see the output. You will see that that the browser failed 
-     to locate the <span class="module"> c_JS_module.js </span> 
+     to locate the <span class="module"> c_JS_module.mjs </span> 
      function <span class="code"> c_func_1 </span>
   </p>
-  <p> This is because with ES6 JS modules all 
-      <span class="bold"> constants variables and functions </span>
-      are by default local to the module they are defined in.
+  <p class="noBottomGap"> This is because with ES6 JS modules all 
+      <span class="bolder"> constants variables and functions </span>
+      are by default local to the module they are defined in. We need to:
+      <ul class="list">
+        <li>explicitly export them using the <span class="code"> export </span> 
+          keyword. Add to module <span class="module"> c_JS_module.mjs </span> :</li>
+        <li class="liNone"><span class="code"> export { a_func_1 }</span></li>
+        <li>explicitly import them into other modules using the <span class="code"> import </span> 
+            keyword. Add to module <span class="module"> d_JS_module.mjs </span> ;</li>
+        <li class="liNone"><span class="code"> import { a_func_1 } </span></li>
+        <li class="liNone"><span class="code"> from "c_JS_module.mjs";</span></li>
+        <li class="liNone"><span class="code"> window.a_func_1 = a_func_1;</span></li>
+      </ul>
   </p>
+  <p class="noBottomGap">Open the console to see the output. You will see that it now works:</p>
+    <ul class="list">
+      <li><span class="module">a_JS_files.js </span> 
+          function <span class="code"> a_func_1 </span> 
+          calls <span class="module"> b_JS_file.js </span> 
+          function <span class="code">b_func_1</span></li>
+      <li><span class="module">c_JS_module.mjs </span>
+          function <span class="code"> c_func_1 </span>
+          calls <span class="module"> d_JS_module.mjs </span>
+          function <span class="code"> d_func_1</span></li>
+    </ul>
 </body>
 </html>
